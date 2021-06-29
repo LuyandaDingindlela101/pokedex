@@ -1,0 +1,217 @@
+@font-face {
+    font-family: pokemon;
+    src: url(../fonts/Pokemon\ Hollow.ttf);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: pokemon;
+    background: #2c2c44;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+  
+  .pokedex-container {
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .pokedex-container .left-content {
+    width: 50%;
+    padding: 50px;
+    max-width: 400px;
+    min-height: 100vh;
+    background: #f6e652;
+  }
+  
+  .pokedex-container .left-content h2 {
+    font-size: 30px;
+    color: #ffffff;
+  }
+  
+  .pokedex-container .left-content .pokemon-list-container {
+    list-style: none;
+    margin-top: 30px;
+  }
+  
+  .pokedex-container .left-content .pokemon-list-container li {
+    cursor: pointer;
+    padding: 10px 0;
+    text-transform: capitalize;
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  .pokedex-container .left-content .pokemon-list-container button {
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 3px;
+    letter-spacing: 2px;
+    background: transparent;
+    text-transform: uppercase;
+    border: 2px solid #ffffff;
+  }
+  
+  .pokedex-container .right-content {
+    width: 100vw;
+    min-height: 100vh;
+  }
+  
+  .pokedex-container .right-content .logo-container {
+    height: 150px;
+    text-align: center;
+  }
+  
+  .pokedex-container .right-content .logo-container img {
+    width: 100%;
+    max-width: 300px;
+    object-fit: cover;
+  }
+  
+  .pokedex-container .right-content .pokemon-card {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 500px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    background: #f6e652;
+    border: 2px solid #f6e652;
+  }
+  
+  .pokedex-container .right-content .pokemon-card .card-header h2 {
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+  .pokedex-container .right-content .pokemon-card .card-body {
+    text-align: left;
+    padding: 25px 5%;
+  }
+  
+  .pokedex-container .right-content .pokemon-card .card-body .pokemon-details h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  .pokedex-container
+    .right-content
+    .pokemon-card
+    .card-body
+    .pokemon-details
+    .abilities-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .pokedex-container .right-content .pokemon-card .pokemon-image img {
+    width: 100%;
+  }
+  
+  .pokedex-container .right-content .details-container {
+    display: grid;
+    place-content: center;
+    min-height: calc(100vh - 150px);
+  }
+  
+  body {
+    width: 100vw;
+    display: grid;
+    min-height: 100vh;
+    background: #2c2c44;
+    place-content: center;
+  }
+  
+  .pokeball {
+    width: 200px;
+    height: 200px;
+    color: #ffffff;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    background: #ffffff;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .pokeball .pokeball-top,
+  .pokeball .pokeball-bottom {
+    height: 40%;
+    width: 100%;
+    position: absolute;
+  }
+  
+  .pokeball .pokeball-top {
+    top: 0;
+    background: #ef4144;
+  }
+  
+  .pokeball .pokeball-middle {
+    top: 50%;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    background: #302d2d;
+    transform: translatey(-50%);
+  }
+  
+  .pokeball .pokeball-middle::before {
+    top: 50%;
+    left: 50%;
+    content: "";
+    z-index: 99;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    background: #ffffff;
+    border: 15px solid #302d2d;
+    transform: translate(-50%, -50%);
+  }
+  
+  .pokeball .pokeball-bottom {
+    bottom: 0;
+    z-index: -1;
+    background: #f6f7f8;
+  }
+  
+  /* POKEBALL ACTIVE STATE */
+  .pokeball.active {
+    width: 500px;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .pokeball.active .pokeball-top {
+    top: -400px;
+    height: 400px;
+    padding: 25px 5%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .pokeball.active .pokeball-top h2 {
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+  
+  .pokeball.active .pokeball-bottom {
+    height: 400px;
+    bottom: -400px;
+    padding: 25px 5%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
