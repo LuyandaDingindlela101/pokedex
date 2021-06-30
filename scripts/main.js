@@ -38,43 +38,44 @@ function getPokemonInfo(url) {
 	console.log(data);
 	// Write data to pokemon information container
 	document.querySelector(".pokeball-top").innerHTML = `
-															<h2 class="pokemon-name">${data.name}</h2>
-															<div class="pokemon-image"><img src="${data.sprites.front_default} "></div>
-														`;
+												<h2 class="pokemon-name">${data.name}</h2>
+												<div class="pokemon-image"><img src="${data.sprites.front_default} "></div>
+											`;
 
-	let pokeball_bottom = document.querySelector(".pokeball-bottom");
+	let abilities_list = document.querySelector(".abilities-list");
+	let moves_list = document.querySelector(".moves-list");
+	
+	let abilities_heading = document.querySelector(".abilities-heading");
+	let moves_heading = document.querySelector(".moves-heading");
 
-	let abilities_list = document.createElement("ul");
-	let moves_list = document.createElement("ul");
+	abilities_list.style.display = "flex";
+	moves_list.style.display = "flex";
 
+	abilities_list.innerHTML = "";
+	moves_list.innerHTML = "";
+
+	abilities_heading.textContent = "Abilities";
 	for (let index in data.abilities) {
 		abilities_list.innerHTML += `
-										<li>${data.abilities[index].ability.name}</li>
-									`;
+								<li>${data.abilities[index].ability.name}</li>
+							`;
+						};
+						
+						moves_heading.textContent = "Moves";
+						
+	for (let index in data.moves) {
+		moves_list.innerHTML += `
+								<li>${data.moves[index].move.name}</li>
+							`;
+		if (index == 4) return;
 	}
-
-	// for (let index in data.moves) {
-	// 	console.log(index);
-	// }
 	// console.log(abilities_list);
 	// pokeball.innerHTML = `${abilities_list}`;
 	// pokeball.innerHTML += `${moves_list}`;
 
-	document.querySelector(".pokeball-bottom").innerHTML = `
-		${abilities_list}
-	`;
-
 	});
 }
 
-let pokeball = document.querySelector(".pokeball");
-
-pokeball.addEventListener("click", toggleClass);
-
-function toggleClass() {
-pokeball.classList.toggle("active");
-}
-
 function open_pokeball() {
-pokeball.classList.add("active");
+	document.querySelector(".pokeball").classList.add("active");
 }
