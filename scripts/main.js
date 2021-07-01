@@ -30,52 +30,127 @@ getPokemonList(base_URL);
 
 // Function to get information about a specific pokemin
 function getPokemonInfo(url) {
-	open_pokeball();
-	fetch(url)
-	.then((response) => response.json())
-	.then((data) => {
-	// Make sure data comes throufg
-	console.log(data);
-	// Write data to pokemon information container
-	document.querySelector(".pokeball-top").innerHTML = `
-												<h2 class="pokemon-name">${data.name}</h2>
-												<div class="pokemon-image"><img src="${data.sprites.front_default} "></div>
-											`;
-
 	let abilities_list = document.querySelector(".abilities-list");
 	let moves_list = document.querySelector(".moves-list");
 	
 	let abilities_heading = document.querySelector(".abilities-heading");
 	let moves_heading = document.querySelector(".moves-heading");
+	
+	openPokeball();
+	fetch(url)
+	.then((response) => response.json())
+	.then((data) => {
+		// Make sure data comes throufg
+		console.log(data);
 
-	abilities_list.style.display = "flex";
-	moves_list.style.display = "flex";
+		abilities_list.style.display = "flex";
+		moves_list.style.display = "flex";
 
-	abilities_list.innerHTML = "";
-	moves_list.innerHTML = "";
+		abilities_list.innerHTML = "";
+		moves_list.innerHTML = "";
 
-	abilities_heading.textContent = "Abilities";
-	for (let index in data.abilities) {
-		abilities_list.innerHTML += `
-								<li>${data.abilities[index].ability.name}</li>
-							`;
-						};
-						
-						moves_heading.textContent = "Moves";
-						
-	for (let index in data.moves) {
-		moves_list.innerHTML += `
-								<li>${data.moves[index].move.name}</li>
-							`;
-		if (index == 4) return;
-	}
-	// console.log(abilities_list);
-	// pokeball.innerHTML = `${abilities_list}`;
-	// pokeball.innerHTML += `${moves_list}`;
+		abilities_heading.textContent = "Abilities";
 
+
+		for (let ability_item of data.abilities) {
+			// console.log(ability_item);
+			fetch(ability_item.ability.url)
+			.then((response) => response.json())
+			.then((abilities_data) => {
+
+				// Write data to pokemon information container
+				document.querySelector(".pokeball-top").innerHTML = 
+				`
+					<h2 class="pokemon-name">${data.name}</h2>
+					<div class="pokemon-image"><img src="${data.sprites.front_default} "></div>
+				`;
+
+				for (let effect_item of abilities_data.effect_entries) {
+					if (effect_item.language.name == "en") {
+						console.log(effect_item);
+						abilities_list.innerHTML += 
+						`
+							<li>
+								<div class="abilities-description">
+									<h4>${ability_item.ability.name}</h4>
+									<p>${effect_item.effect}</p>
+								</div>
+							</li>
+						`;
+					}
+				}
+
+			});
+		}
+		
+		moves_heading.textContent = "Moves";
+
+		let index = 0;
+		for (let move_item of data.moves) {
+			// console.log(move_item.move);
+			fetch(move_item.move.url)
+			.then((response) => response.json())
+			.then((moves_data) => {
+				console.log(moves_data.flavor_text_entries);
+
+				// for (let flavour_item of moves_data.flavor_text_entries) {
+				// 	console.log(flavour_item);
+					moves_list.innerHTML += 
+					`
+						<li>${data.moves[index].move.name}</li>
+					`;
+					if (flavour_item.version_group.name == "diamond-pearl") {
+						moves_list.innerHTML += 
+						`
+							<li>${data.moves[index].move.name}</li>
+						`;
+			
+					}
+				// }
+				// for (let i = 0; i < 2; i++) {
+				// 	console.log(moves_data.flavor_text_entries[i].flavor_text);
+				// }
+
+				// Write data to pokemon information container
+				// document.querySelector(".pokeball-top").innerHTML = 
+				// `
+				// 	<h2 class="pokemon-name">${data.name}</h2>
+				// 	<div class="pokemon-image"><img src="${data.sprites.front_default} "></div>
+				// `;
+
+				// for (let effect_item of moves_data_data.effect_entries) {
+				// 	if (effect_item.language.name == "en") {
+				// 		console.log(effect_item);
+				// 		moves_data_list.innerHTML += 
+				// 		`
+				// 			<li>
+				// 				<div class="moves_data-description">
+				// 					<h4>${move_item.ability.name}</h4>
+				// 					<p>${effect_item.effect}</p>
+				// 				</div>
+				// 			</li>
+				// 		`;
+				// 	}
+				// }
+			});
+
+			index++;
+			
+			if (index == 1) return;
+		}
+				
+				
+		for (let index in data.moves) {
+			moves_list.innerHTML += 
+			`
+				<li>${data.moves[index].move.name}</li>
+			`;
+
+			if (index == 1) return;
+		}
 	});
 }
 
-function open_pokeball() {
+function openPokeball() {
 	document.querySelector(".pokeball").classList.add("active");
 }

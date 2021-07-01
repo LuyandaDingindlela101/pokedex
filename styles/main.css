@@ -207,9 +207,10 @@ body {
 }
 
 .pokedex-container .right-content .pokeball.active .pokeball-bottom {
-	height: 400px;
-	bottom: -400px;
-	padding: 80px 5%;
+	top: 0;
+	height: auto;
+	bottom: initial;
+	padding: 25px 5%;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
