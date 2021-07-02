@@ -5,12 +5,16 @@
      <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     
      <!-- 3RD PARTY STYLESHEETS -->
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+     <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@200;400&display=swap" rel="stylesheet">
+     
      <!-- MY STYLESHEETS -->
      <link rel="stylesheet" href="./styles/main.css" />
+     <link rel="stylesheet" href="./styles/animations.css">
      <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -21,16 +25,27 @@
                </a>
           </div>
      </header>
-     <div class="left-content">
-          <h2>Choose your pokemon</h2>
-          <ul class="pokemon-list-container"></ul>
-     </div>
      <div class="right-content">
-          <div class="pokeball">
-               <div class="pokeball-image"></div>
-               <div class="pokeball-details">
-                    <h1></h1>
-                    <div class="stats-container"></div>
+          <div class="container">
+               <div class="pokeball">
+                    <div class="pokeball-image"></div>
+                    <div class="pokeball-details">
+                         <h1></h1>
+                         <div class="stats-container"></div>
+                    </div>
+               </div>
+               <div class="pokemon-choices">
+                    <div class="choice">
+                         <h3>Charmander</h3>
+                    </div>
+                    <div class="choice">
+                         <h3>Charmeleon</h3>
+                    </div>
+                    <div class="choice">
+                         <h3>Charizard</h3>
+                    </div>
+               </div>
+               <div class="btn-container">
                </div>
           </div>
      </div>
