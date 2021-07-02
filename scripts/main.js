@@ -1,7 +1,4 @@
 let pokemon = {};
-let type_colors = {
-     fire: "#ef953d",
-}
 let base_URL = "https://pokeapi.co/api/v2/pokemon/?offset=3&limit=3";
 
 // Function to fetch a list of pokemon
@@ -31,7 +28,6 @@ function getPokemonList(url) {
           document.querySelector(".btn-container").innerHTML +=
                `<br><br><button onclick="getPokemonList('${data.next}')">Next</button>`
 		// Add a next pokemon button
-		// container.innerHTML += `<br><br><button onclick="getPokemonList('${data.next}')">Next</button>`;
 	});
 }
 
@@ -69,12 +65,6 @@ function getPokemonInfo(url) {
                     <p>Height</p>
                </div>
           `
-
-          // document.querySelector(".right-content").style.background = `url(./images/${pokemon.type}.svg)`;
-          // document.querySelector(".right-content").style.backgroundPosition = 'center';
-          // document.querySelector(".right-content").style.backgroundRepeat = 'no-repeat'
-          // document.querySelector(".right-content").style.backgroundSize = 'contain'
-          // document.querySelector(".right-content").style.animation = 'none'
 	});
 }
 
