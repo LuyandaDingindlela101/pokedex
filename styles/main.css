@@ -148,7 +148,7 @@ body {
      justify-content: space-between;
 }
 
-.right-content .container .pokeball.active .pokeball-details .stats-container .weight-container {
+.right-content .container .pokeball.active .pokeball-details .stats-container .type-container {
      border-left: 2px solid #f6e652;
      border-right: 2px solid #f6e652;
 }
@@ -169,8 +169,14 @@ body {
 .right-content .container .pokeball.active .pokeball-details .stats-container .type-container p,
 .right-content .container .pokeball.active .pokeball-details .stats-container .weight-container p, 
 .right-content .container .pokeball.active .pokeball-details .stats-container .height-container p {
+     margin-top: 25px;
      font-weight: bold;
      letter-spacing: 2px;
+}
+
+
+.right-content .container .pokeball.active .pokeball-details .stats-container .type-container p {
+     margin-top: 0;
 }
 
 .right-content .container .pokemon-choices {

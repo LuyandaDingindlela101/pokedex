@@ -1,4 +1,7 @@
 let pokemon = {};
+let type_colors = {
+     fire: "#ef953d",
+}
 let base_URL = "https://pokeapi.co/api/v2/pokemon/?offset=3&limit=3";
 
 // Function to fetch a list of pokemon
@@ -53,19 +56,25 @@ function getPokemonInfo(url) {
           document.querySelector(".pokeball-details h1").textContent = `${pokemon.name}`
           document.querySelector(".stats-container").innerHTML = 
           `
-               <div class="type-container">
-                    <span>${pokemon.type}</span>
-                    <p>Type</p>
-               </div>
                <div class="weight-container">
                     <span>${pokemon.weight}</span>
                     <p>Weight</p>
+               </div>
+               <div class="type-container">
+                    <img src="./images/${pokemon.type}.svg" alt="pokemon ${pokemon.type} type icon">
+                    <p>Type</p>
                </div>
                <div class="height-container">
                     <span>${pokemon.height}</span>
                     <p>Height</p>
                </div>
           `
+
+          // document.querySelector(".right-content").style.background = `url(./images/${pokemon.type}.svg)`;
+          // document.querySelector(".right-content").style.backgroundPosition = 'center';
+          // document.querySelector(".right-content").style.backgroundRepeat = 'no-repeat'
+          // document.querySelector(".right-content").style.backgroundSize = 'contain'
+          // document.querySelector(".right-content").style.animation = 'none'
 	});
 }
 
